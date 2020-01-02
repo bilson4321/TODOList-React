@@ -11,10 +11,16 @@ class ItemList extends React.Component
     {
         return(
             <article>
-                <ul>
-                {this.props.todoTask.map((item,index)=>{return <li key={index}><TODOItem item={item} /></li>})}
-                </ul>
-                
+                <div className='container'>
+                    <ul className='list-group'>
+                    {this.props.todoTask.map((item,index)=>
+                        {
+                            return <li className='list-group-item' key={index}>
+                             <TODOItem item={item} />
+                            </li>
+                        })}
+                    </ul>
+                </div>  
             </article>
         );
     }

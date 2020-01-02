@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './Component/Header.js'
 import ItemList from './Component/ItemList.js';
 import Search from './Component/Search.js';
+import NavBar from './Component/Navbar.js';
 
 class App extends React.Component 
 {
@@ -24,23 +25,26 @@ class App extends React.Component
                 completed:false
               }
             ],
-      searchKeyWord:''
+      view:"all",
+      searchKeyWord:""
     }
   }
   render()
   {
-    const result=this.state.tasks;
-    if(this.state.searchKeyWord==null)
-    {
-      console.log("empty");
-    }
-    else
-    {
-      console.log(this.state.searchKeyWord);
-    }
+    var result=this.state.tasks.filter(value=>value.title.includes(this.state.searchKeyWord));
+    // // if(this.state.searchKeyWord!=="")
+    // // {
+    // //   console.log(this.state.searchKeyWord);
+    // //   result=this.state.tasks.filter(value=>value.title.includes(this.state.searchKeyWord));
+    // // }
+    // else
+    // {
+    //   result=this.state.tasks;
+    // }
     return (
       <React.Fragment>
         <Header />
+        <NavBar />
         <Search changeSearchKeyWord={this.changeSearchQuery}/>
         <ItemList todoTask={result} />
       </React.Fragment>
@@ -49,7 +53,10 @@ class App extends React.Component
   changeSearchQuery=(keyword)=>
   {
     this.setState({searchKeyWord:keyword});
-    console.log(this.state.searchKeyWord);
+  }
+  changeView=(toView)=>
+  {
+    this.setState({view:toView})
   }
 }
 

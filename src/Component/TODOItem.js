@@ -13,10 +13,10 @@ class TODOItem extends React.Component
     render()
     {
         return(
-        <div className='container-fluid' onClick={this.changeState}>
-            <input type='checkbox' onChange={this.changeState} checked={this.state.completed}/>
-            <h3>{this.state.completed?<del>{this.state.title}</del>:this.state.title}</h3>
-        </div>
+            <div className='custom-control custom-checkbox mb-3' onClick={this.changeState}>
+                <input className='custom-control-input' type='checkbox' onChange={this.changeState} checked={this.state.completed}/>
+                <label className='custom-control-label'>{this.state.completed?<del>{this.state.title}</del>:this.state.title}</label>
+            </div>
         );
     }
     changeState=()=>
