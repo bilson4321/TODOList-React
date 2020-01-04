@@ -13,15 +13,21 @@ class TODOItem extends React.Component
     render()
     {
         return(
-            <div className='custom-control custom-checkbox mb-3' onClick={this.changeState}>
+            <div className='custom-control custom-checkbox mb-1' onClick={this.changeState}>
                 <input className='custom-control-input' type='checkbox' onChange={this.changeState} checked={this.state.completed}/>
                 <label className='custom-control-label'>{this.state.completed?<del>{this.state.title}</del>:this.state.title}</label>
+                <button className='float-right' onClick={this.deleteTask}>X</button>
             </div>
         );
     }
     changeState=()=>
     {
         this.setState({completed:!this.state.completed});
+    }
+    deleteTask=(event)=>
+    {
+        event.preventDefault();
+        
     }
 }
 export default TODOItem;

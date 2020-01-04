@@ -2,6 +2,7 @@
   "name": "todolist-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bilson4321.github.io/todolist-react",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -9,10 +10,13 @@
     "bootstrap": "^4.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "uniqid": "^5.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+  	"predeploy": "npm run build",
+  	"deploy": "gh-pages -d build",
+  	"start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -31,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }

@@ -15,9 +15,9 @@ class ItemList extends React.Component
                     <ul className='list-group'>
                     {this.props.todoTask.map((item,index)=>
                         {
-                            return <li className='list-group-item' key={index}>
+                            return(<li className='list-group-item' key={item.id}>
                              <TODOItem item={item} />
-                            </li>
+                            </li>)
                         })}
                     </ul>
                 </div>  
