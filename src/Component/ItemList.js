@@ -13,10 +13,10 @@ class ItemList extends React.Component
             <article>
                 <div className='container'>
                     <ul className='list-group'>
-                    {this.props.todoTask.map((item,index)=>
+                    {this.props.todoTask.map((item)=>
                         {
                             return(<li className='list-group-item' key={item.id}>
-                             <TODOItem item={item} />
+                             <TODOItem item={item} deleteTask={this.props.deleteTask} />
                             </li>)
                         })}
                     </ul>

@@ -20,7 +20,7 @@ class App extends React.Component
                 completed:false
               },
               {
-                id:UniqueId(),
+                id:2,
                 title:"Go to College",
                 completed:false
               },
@@ -62,7 +62,7 @@ class App extends React.Component
         <Header />
         <NavBar view={this.changeView} addTask={this.addNewTask}/>
         <Search changeSearchKeyWord={this.changeSearchQuery}/>
-        <ItemList todoTask={result} />
+        <ItemList todoTask={result} deleteTask={this.deleteTask} />
       </React.Fragment>
     );
   }
@@ -84,7 +84,8 @@ class App extends React.Component
   deleteTask=(id)=>
   {
     var toDelete=this.state.tasks.find(element=>element.id===id);
-    
+    var temp=this.state.tasks.filter(element=>element!==toDelete);
+    this.setState({tasks:temp});
   }
 }
 
