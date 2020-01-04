@@ -16,7 +16,7 @@ class ItemList extends React.Component
                     {this.props.todoTask.map((item)=>
                         {
                             return(<li className='list-group-item' key={item.id}>
-                             <TODOItem item={item} deleteTask={this.props.deleteTask} />
+                             <TODOItem item={item} changeTaskState={this.props.changeTaskState} deleteTask={this.props.deleteTask} />
                             </li>)
                         })}
                     </ul>

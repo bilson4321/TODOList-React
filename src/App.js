@@ -62,7 +62,7 @@ class App extends React.Component
         <Header />
         <NavBar view={this.changeView} addTask={this.addNewTask}/>
         <Search changeSearchKeyWord={this.changeSearchQuery}/>
-        <ItemList todoTask={result} deleteTask={this.deleteTask} />
+        <ItemList todoTask={result} changeTaskState={this.changeTaskState} deleteTask={this.deleteTask} />
       </React.Fragment>
     );
   }
@@ -80,6 +80,18 @@ class App extends React.Component
               title:task,
              completed:false};
     this.setState({tasks:[...this.state.tasks,temp]});
+  }
+  changeTaskState=(id)=>
+  {
+    var toChange=this.state.tasks.find(element=>element.id===id);
+    var temp=this.state.tasks.filter(element=>{
+                                                
+                                                if(element===toChange)
+                                                  element.completed=!element.completed;
+                                                
+                                                 return element; 
+                                                });
+    this.setState({tasks:temp});
   }
   deleteTask=(id)=>
   {

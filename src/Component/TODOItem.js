@@ -15,7 +15,7 @@ class TODOItem extends React.Component
     {
         return(
             <div className='custom-control custom-checkbox mb-1' onClick={this.changeState}>
-                <input className='custom-control-input' type='checkbox' onChange={this.changeState} checked={this.state.completed}/>
+                <input className='custom-control-input' type='checkbox' onChange={()=>this.changeState()} checked={this.state.completed}/>
                 <label className='custom-control-label'>{this.state.completed?<del>{this.state.title}</del>:this.state.title}</label>
                 <button className='float-right' onClick={()=>this.deleteTask(this.state.id)}>X</button>
             </div>
@@ -24,6 +24,7 @@ class TODOItem extends React.Component
     changeState=()=>
     {
         this.setState({completed:!this.state.completed});
+        this.props.changeTaskState(this.state.id);
     }
     deleteTask=(id)=>
     {
