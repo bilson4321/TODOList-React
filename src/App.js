@@ -33,7 +33,17 @@ class App extends React.Component
       view:"all",
       searchKeyWord:""
     }
-
+  }
+  componentDidMount()
+  {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+    this.setState({tasks:myJson});
+  });
+  
   }
   render()
   {
