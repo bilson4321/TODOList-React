@@ -3,11 +3,21 @@
 	{
         "id":1,
         "title":"Go to College",
-        "completed":false
+        "completed":true
 	},
 	{
         "id":2,
         "title":"Study in College",
+        "completed":false
+	},
+	{
+        "id":3,
+        "title":"Eat Lunch",
+        "completed":true
+	},
+	{
+        "id":4,
+        "title":"Return Home",
         "completed":false
 	}
 ]

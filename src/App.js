@@ -13,30 +13,14 @@ class App extends React.Component
   {
     super();
     this.state={
-      tasks:[
-              {
-                id:UniqueId(),
-                title:"Cook breakFast",
-                completed:false
-              },
-              {
-                id:2,
-                title:"Go to College",
-                completed:false
-              },
-              {
-                id:UniqueId(),
-                title:"Study in College",
-                completed:true
-              }
-            ],
+      tasks:[],
       view:"all",
       searchKeyWord:""
     }
   }
   componentDidMount()
   {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    fetch('https://my-json-server.typicode.com/bilson4321/todolist-react/tasks')
     .then((response) => {
       return response.json();
     })
@@ -89,6 +73,20 @@ class App extends React.Component
     var temp={id:UniqueId(),
               title:task,
              completed:false};
+    fetch('https://my-json-server.typicode.com/bilson4321/todolist-react/tasks', {
+              method: 'POST', // or 'PUT'
+              headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+              },
+              body: JSON.stringify(temp),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Success:', data);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
     this.setState({tasks:[...this.state.tasks,temp]});
   }
   changeTaskState=(id)=>

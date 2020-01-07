@@ -12,6 +12,9 @@ class ItemList extends React.Component
         return(
             <article>
                 <div className='container'>
+                {
+                (this.props.todoTask.length!==0)?
+                
                     <ul className='list-group'>
                     {this.props.todoTask.map((item)=>
                         {
@@ -20,6 +23,9 @@ class ItemList extends React.Component
                             </li>)
                         })}
                     </ul>
+                :
+                <h1>No item Found</h1>
+                }
                 </div>  
             </article>
         );
