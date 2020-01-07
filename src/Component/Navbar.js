@@ -30,7 +30,7 @@ class NavBar extends React.Component
                 <form>
                 <div className='input-group'>
                     <label htmlFor='task'>Task : </label>
-                    <input id='task' className='form-control' type='text' placeholder="Task" onChange={this.handleTaskInput}></input>
+                    <input id='task' className='form-control' value={this.state.taskInput} type='text' placeholder="Task" onChange={this.handleTaskInput}></input>
                     <div className="input-group-append">
                         <button className="btn btn-success" type="submit" onClick={this.addTask}>Add</button>  
                     </div>
@@ -46,13 +46,18 @@ class NavBar extends React.Component
     }
     handleTaskInput=(e)=>
     {
-        this.setState({taskInput:e.target.value});
-        
+        if(e.target.value==13)
+        {
+
+        }
+        else
+        this.setState({taskInput:e.target.value});   
     }
     addTask=(e)=>
     {
         e.preventDefault();
         this.setState({taskInput:""});
+        if(this.state.taskInput!=="")
         this.props.addTask(this.state.taskInput);
     }
 }
